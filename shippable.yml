@@ -13,12 +13,36 @@ matrix:
  #   - go: 1.2
 
 build:
-  ci:      
+  pre_ci:
+    - docker build -t=sreyaj/shiphitchcock2_sample_golnew .
+    
+  pre_ci_boot:
+    image_name: drydock/u12gol
+    image_tag: prod
+    pull: true
+    options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
+    
+    
+  ci:   
     - go version   
 
+  post_ci:
+   # - docker build -t=shippabledocker/shiphitchcock4samplenod .
+    #- docker push shippabledocker/shiphitchcock4samplenod
+   # - docker build -t=quay.io/shippablequay/hitchcock2_sample_nodequay .
+    #- docker push quay.io/shippablequay/hitchcock2_sample_nodequay
+    - docker build -t=shippabledocker/shiphitchcock4samplegolsreya:$BRANCH.$BUILD_NUMBER .
+    - docker push shippabledocker/shiphitchcock4samplegolsreya:$BRANCH.$BUILD_NUMBER
+
+integrations:
+  hub:
+    - integrationName: ship-docker
+      type: docker   
+    #-integrationName: ship-quay
+     #type: quay.io  
 
      
       
        
   
- 
+    
