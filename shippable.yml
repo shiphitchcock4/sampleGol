@@ -27,4 +27,4 @@ build:
     pull: true
     
   ci:
-    - go version
+    - go version  
