@@ -69,7 +69,14 @@ integrations:
         - "chat.freenode.net#test1-irc"
       on_start: always
       on_success: always      
-      on_failure: always            
+      on_failure: always    
+    - integrationName: shiphitchcock4-webhook
+      type: webhook
+      payload:
+        - API_URL=$SHIPPABLE_API_URL
+        - CONTAINER_NAME=$SHIPPABLE_CONTAINER_NAME
+        - FOO=bar
+        - FIZZ=buzz
        
                       
    
