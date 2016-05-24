@@ -15,7 +15,7 @@ services:
   - mongodb  
   - elasticsearch
   - redis
-  - memcache
+  - memcache   
   - rabbitmq
 matrix:
   include:
