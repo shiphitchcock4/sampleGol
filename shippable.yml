@@ -12,7 +12,7 @@ matrix:
 #  exclude:
  #   - go: 1.2
 
-build:
+build:  
   ci:      
     - go version   
  
